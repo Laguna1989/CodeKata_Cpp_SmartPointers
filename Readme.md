@@ -1,5 +1,7 @@
-# General Rules:
+# Overview
+This is a C++ Smart Pointer Kata. It is meant to make you familiar with some of the aspects of C++ Smart pointers. You will need a recent compiler that supports the smart pointer features. 
 
+# General Rules
 * Please make use of the reference,
   e.g. https://en.cppreference.com/w/cpp/memory, and all other online or offline
   resources that might come in helpful.
