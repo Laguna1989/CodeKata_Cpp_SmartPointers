@@ -19,10 +19,10 @@ public:
     ~Galaxy();
     std::size_t get_system_count() const;
 
-    System* get_system(int index);
+    void add_ship_to_system(std::size_t system_index);
 
-    float total_mass();
-    void admire_picture();
+    float total_mass() const;
+    void admire_galaxy_picture() const;
 
 private:
     std::vector<System*> m_systems;

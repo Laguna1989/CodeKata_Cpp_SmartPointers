@@ -21,7 +21,7 @@ Galaxy::~Galaxy()
 }
 
 std::size_t Galaxy::get_system_count() const { return m_systems.size(); }
-float Galaxy::total_mass()
+float Galaxy::total_mass() const
 {
     float sum {0};
     for (auto s : m_systems) {
@@ -29,5 +29,7 @@ float Galaxy::total_mass()
     }
     return sum;
 }
-void Galaxy::admire_picture() { m_sprite->look_at(); }
-System* Galaxy::get_system(int index) { return m_systems.at(index); }
+void Galaxy::admire_galaxy_picture() const { m_sprite->look_at(); }
+void Galaxy::add_ship_to_system(std::size_t system_index) {
+    m_systems.at(system_index)->add_ship();
+}

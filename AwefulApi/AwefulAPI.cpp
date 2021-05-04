@@ -6,7 +6,7 @@
 
 namespace AwefulApi {
 
-void Sprite::look_at() { assert(m_valid); }
+void Sprite::look_at() const { assert(m_valid); }
 
 Sprite::~Sprite()
 {

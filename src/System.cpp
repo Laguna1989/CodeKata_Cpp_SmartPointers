@@ -16,4 +16,10 @@ float System::get_ships_mass()
 }
 float System::get_base_mass() { return 2.0f; }
 void System::add_ship() { m_ships.push_back(new Ship(this, 0.25f)); }
-Ship* System::get_ship(std::size_t index) { return m_ships.at(index); }
+void System::update_ship_positions() {
+    for(auto s : m_ships)
+    {
+        s->navigate();
+    }
+}
+

@@ -14,7 +14,7 @@ public:
     bool m_valid{false};
 
     ~Sprite();
-    void look_at();
+    void look_at() const;
     bool m_correctly_destroyed{false};
 };
 

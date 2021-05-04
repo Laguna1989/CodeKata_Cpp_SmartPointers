@@ -11,7 +11,7 @@ class GalaxyTextFixture : public ::testing::TestWithParam<std::size_t> {
 TEST_P(GalaxyTextFixture, GalaxyContainsExpectedNumberOfSystems)
 {
     std::size_t const expected_systems = GetParam();
-    Galaxy g(expected_systems);
+    Galaxy const g(expected_systems);
 
     EXPECT_EQ(g.get_system_count(), expected_systems);
 }
@@ -19,7 +19,7 @@ TEST_P(GalaxyTextFixture, GalaxyContainsExpectedNumberOfSystems)
 TEST_P(GalaxyTextFixture, GalaxyWithoutShipsContainsCorrectMass)
 {
     std::size_t const expected_systems = GetParam();
-    Galaxy g(expected_systems);
+    Galaxy const g(expected_systems);
 
     EXPECT_EQ(g.total_mass(), 2.0f * expected_systems);
 }
@@ -29,8 +29,8 @@ TEST(GalaxyTest, GalaxyWithShipsContainsCorrectMass)
     std::size_t const expected_systems = 5;
     Galaxy g(expected_systems);
 
-    g.get_system(1)->add_ship();
-    g.get_system(2)->add_ship();
+    g.add_ship_to_system(1);
+    g.add_ship_to_system(2);
 
     EXPECT_EQ(g.total_mass(), 2.0f * expected_systems + 0.5f);
 }
@@ -39,8 +39,8 @@ INSTANTIATE_TEST_CASE_P(GalaxyText, GalaxyTextFixture, ::testing::Values(0, 1, 1
 
 TEST(GalaxyTest, AdmireGalaxyDoesNotAbort)
 {
-    Galaxy g { 0 };
-    g.admire_picture();
+    Galaxy const g { 0 };
+    g.admire_galaxy_picture();
 }
 
 TEST(SpriteTest, CorrectUseDoesNotAbort)
@@ -73,5 +73,6 @@ TEST(ShipTest, NavigateDoesNotTerminate)
 {
     System s {};
     s.add_ship();
-    s.get_ship(0)->navigate();
+    s.add_ship();
+    s.update_ship_positions();
 }

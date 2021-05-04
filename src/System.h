@@ -10,15 +10,15 @@ class Ship;
 
 class System {
 public:
-    std::vector<Ship*> m_ships;
     float get_total_system_mass();
     float get_ships_mass();
     float get_base_mass();
 
     void add_ship();
 
-    Ship* get_ship(std::size_t index);
-
+    void update_ship_positions();
+private:
+    std::vector<Ship*> m_ships;
 };
 
 #endif // CPPSMARTPOINTERCODEKATA_SYSTEM_H
